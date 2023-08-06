@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="style1.1.css">      
+        <link rel="stylesheet" href="subscription.css">
+        <title>Landing Site</title>
+               
+    </head>
+    <body class="vh-100 overflow-hidden" >
+    <div class="section-one" id="home" >
+        
+        <header>
+            <nav class="navbar">
+                <a href="#" class="nav-branding">LAPSON</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-two" class="nav-link">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-three" class="nav-link">Subscribe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-four" class="nav-link">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggle()">Login</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span> 
+                </div>
+            </nav>
+        </header>
+        
+        
+        <div class="top_section vh-100 overflow-hidden" id="blur">
+            <h1 class="intro1"><span> Welcome to </span></h1><br> 
+            <h1 class="intro"><span>LAPSON</span></h1>
+            <h2 class="intro2"><span>"Experience on your fingertips"</span></h2> 
+            
+        </div>
+    </div>
+    
+
+
+        <div  id="popup" class="login_container">
+            
+            <div class="_loginform">
+                <h1 class="heading">Login</h1>
+                <input type="email" placeholder="email" autocomplete="off" class="login_email" required><br>
+                <input type="password" placeholder="password" autocomplete="off" class="login_password" required><br>
+            <button class="submit-btn" onclick="toggle()" class="popup_close">log in</button>
+            <a href="#section-three" class="link" onclick="toggle()" class="popup_close" >Don't have an account?Register one</a>
+            
+            <button class="logout" onclick="toggle()" class="popup_close" >Log out</button> 
+        </div>
+    
+        </div>
+        
+   
+   
+    <script src="script.js"></script>
+    
+
+   <!--Section 2 : Features-->
+    <div class="section-two vh-100 overflow-hidden" id="section-two">
+        <h1>Features<br>
+        <span>U need to know</span></h1>
+    <div class="big-container">
+        <div class="container">
+            <div class="card">
+                <img src="icons8-processor-50.png" alt="core">
+                <h2>Latest Gen Intel Core</h2>
+                <button>.</button>
+            </div>
+            <div class="card">
+                <img src="icons8-battery-32.png" alt="core">
+                <h2>10 Hours Battery</h2>
+                <button></button>
+            </div>
+            <div class="card">
+                <img src="icons8-hd-48.png" alt="core">
+                <h2>Full HD</h2>
+                <button></button>
+            </div>
+            <div class="card">
+                <img src="icons8-ram-64.png" alt="core">
+                <h2>64GB RAM</h2>
+                <button></button>
+            </div>
+            <div class="card">
+                <img src="icons8-ssd-96.png" alt="core">
+                <h2>512GB SSD</h2>
+                <button></button>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+
+    <!-- Section 3 -->
+
+    <div class="section-three vh-100 overflow-hidden" id="section-three">
+        <div class="line"></div>
+        <div class="line2"></div>
+        <h1>Stay tuned with our Newsletter Sign Up!</h1>
+    <div class="container-three">
+        <form name="submit-to-google-sheet">
+            <input type="text" name="Name" placeholder="Enter your name">
+            <input type="tel" name="Contact" placeholder="Contact number" size="10" minlength="10" maxlength="10" >
+            <input type="email" name="Email" placeholder="Enter your email id" required>
+            <input type="password" name="Password" placeholder="Password" minlength="8" required>
+        </div>
+            <button type="submit">Stay Tuned <img src="icons8-send-64.png"></button>
+        </form>
+    <br><br>
+        <span id="msg"></span>
+        
+    
+    <div class="line2"></div>
+    <div class="line3"></div>
+    
+</div>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyNwdgs-JQ6USzfj8WfrGv0aeGRTgNmEnA7G7mXfLX94mZCbiBilrg55R2lVyELUoWu/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "*Thank You for Subscribing!"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+    
+
+      <!-- section 4-->
+      <div class="section-four vh-100 overflow-hidden" id="section-four">
+        <div class="end-line">
+            <label><a href="#home">Go to top</a></label>
+        </div>
+        <div class="end">
+            <div class="end-content">
+                <p>
+                    <b><i>Contact No. :</b> +91 1122334455<br><br>
+                    <b>Address :</b><br>
+                    23 Cornelia Street, <br>
+                    New York,<br>
+                     NY 10014,<br>
+                      USA<br></i>
+                </p>
+            </div>
+            <div class="end-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.382465605428!2d-74.00407596683648!3d40.731608985665204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25993bf2d3301%3A0xdac8491f98dc8e76!2s23%20Cornelia%20St%2C%20New%20York%2C%20NY%2010014%2C%20USA!5e0!3m2!1sen!2sin!4v1689851877717!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="end-contact">
+                <img src="icons8-facebook-32.png" alt="Facebook">
+                <img src="icons8-instagram-32.png" alt="Instagram">
+                <img src="icons8-linkedin-32.png" alt="LinkedIn">
+                <img src="icons8-youtube-32.png" alt="youtube">
+            </div>
+        </div>
+
+      </div>
+    </body>
+</html>
